@@ -1,27 +1,46 @@
-{% extends 'layout.html' %} 
-{% block title %}
+{% extends 'layout.html' %} {% block title %}
 <title>Live Inference - AFL Monitoring</title>
-{% endblock %} 
-{% block body %}
+{% endblock %} {% block body %}
 <div class="container">
-    <div class="row">
-        <div class="col-lg-8  offset-lg-2">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <h2 class="mt-5">Live Inference - AFL Monitoring</h2>
+      <form method="post" action="{{ url_for('ir_tasks') }}">
+        <input type="submit" value="Run Model" name="run_model" />
+        <input type="submit" value="Stop Model" name="stop_model" />
+      </form>
 
-            <h2 class="mt-5">Live Inference - AFL Monitoring</h2>
-            <form method="post" action="{{ url_for('ir_tasks') }}">
-            <input type="submit" value="Run Model" name="run_model" />
-            <input type="submit" value="Stop Model" name="stop_model"/>
-          
-            
-            </form>
-            <img src="{{ url_for('video_feed') }}" height="80%">
-            <h3 style="font-family:courier;">Instructions:</h3>
-            <ol style="font-family:courier;">
-            <li>Here</li>
-            
-        </div>
+      
     </div>
+  </div>
+  <div>
+    <br /><br />
+
+      <table class="table table-bordered table-dark">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Date Added</th>
+            <th scope="col">Fuzzy Reading</th>
+            <th scope="col">Model Reading</th>
+            <th scope="col">Net Reading</th>
+            <th scope="col">Summation</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for data in my_data %}
+          <tr>
+            <th scope="row">{{data.id}}</th>
+            <td>{{data.datetime}}</td>
+            <td>{{data.fuzzy_reading}}</td>
+            <td>{{data.model_reading}}</td>
+            <td>{{data.net_reading}}</td>
+            <td>{{data.sum_reading}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+  </div>
 </div>
 
-    
 {% endblock %}

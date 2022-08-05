@@ -1,7 +1,49 @@
-{% extends 'layout.html' %} 
-{% block title %}
-    <title>Auxiliary Sensors - AFL Monitoring</title>
-{% endblock %}
-{% block body %}
-    
+{% extends 'layout.html' %} {% block title %}
+<title>Auxiliary Sensors - AFL Monitoring</title>
+{% endblock %} {% block body %}
+<div class="container">
+  <div class="col-lg-8 offset-lg-2">
+    <h2 class="mt-5">
+      Auxiliary Sensor Readings - Spatial Smoke and Soil Moisture - AFL
+      Monitoring
+    </h2>
+    <form method="post" action="{{ url_for('ar_tasks') }}">
+      <input
+        type="submit"
+        value="Fetch Latest Status"
+        name="fetch-latest-status"
+      />
+    </form>
+  </div>
+  <br /><br />
+
+  <div>
+    <table class="table table-bordered table-dark">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Date Added</th>
+            <th scope="col">Soil Moisture</th>
+            <th scope="col">Spatial Smoke Density</th>
+          </tr>
+        </thead>
+        
+        <br /><br />
+
+        <tbody>
+          {% for data in my_data_aux %}
+          <tr>
+            <th scope="row">{{data.id}}</th>
+            <td>{{data.datetime}}</td>
+            <td>{{data.moisture_reading}}</td>
+            <td>{{data.smoke_reading}}</td>
+            
+          </tr>
+          {% endfor %}
+          
+        </tbody>
+      </table>
+  </div>
+</div>
+
 {% endblock %}
