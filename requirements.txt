@@ -53,8 +53,6 @@ nbclient==0.6.6
 nbconvert==6.5.0
 nbformat==5.4.0
 nest-asyncio==1.5.5
-notebook==6.4.12
-notebook-shim==0.1.0
 numpy==1.23.1
 opencv-python==4.6.0.66
 packaging==21.3
@@ -73,7 +71,6 @@ pyparsing==3.0.9
 pyrsistent==0.18.1
 python-dateutil==2.8.2
 pytz==2022.1
-pywin32==304
 pywinpty==2.0.6
 PyYAML==6.0
 pyzmq==23.2.0
