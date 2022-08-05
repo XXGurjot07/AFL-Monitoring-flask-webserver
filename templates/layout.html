@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="/static/bootstrap-styles.css"
+    />
+    <link rel="icon" type="image/x-icon" href="/static/favicon.gif" />
+    {% block title %} {% endblock %}
+  </head>
+  <body>
+    <nav class="navbar" style="background-color: #e3f2fd">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">AFL Monitoring</a>
+        </div>
+        <ul class="nav navbar-nav" style="float: right">
+          <li class="active"><a href="/">Home</a></li>
+          <li><a href="/live-inference">Live Inference</a></li>
+          <li><a href="/video-stream">Video Stream</a></li>
+          <li><a href="/auxiliary-sensors">Auxiliary Sensors</a></li>
+          <li><a href="/view-database">Database</a></li>
+          <li><a href="/about-project">About Project</a></li>
+        </ul>
+      </div>
+    </nav>
+    {% block body %} {% endblock %}
+    <footer
+      class="page-footer font-small blue"
+      style="background-color: #e3f2fd"
+    >
+      <div class="footer-copyright text-center py-3">
+        © Telelabs Chandigarh:
+        <a href="https://telelabs.in/">Telelabs.in</a>
+      </div>
+    </footer>
+  </body>
+</html>

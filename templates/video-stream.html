@@ -1,0 +1,33 @@
+{% extends 'layout.html' %} 
+{% block title %}
+<title>Live Stream - AFL Monitoring</title>
+{% endblock %} 
+
+{% block body %} 
+
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8  offset-lg-2">
+    
+                <h2 class="mt-5">Live Video Streaming - AFL Monitoring</h2>
+                <form method="post" action="{{ url_for('sr_tasks') }}">
+                <input type="submit" value="Play / Pause" name="stop" />
+                <input type="submit" value="Capture" name="capture"/>
+              
+                <input type="submit" value="Start / Stop Recording" name="rec" />
+                </form>
+                <img src="{{ url_for('video_feed') }}" height="80%">
+                <h3 style="font-family:courier;">Instructions:</h3>
+                <ol style="font-family:courier;">
+                <li>Stop/Start -- Play or Pause Live Streaming</li>
+                <li>Capture -- Take a Still-shot and Save in Directory</li>	
+                <li>Start/Stop Recording --Toggle between Starting and Stopping Video Recording</li>	
+                
+            </div>
+        </div>
+    </div>
+    
+    
+{% endblock %}
+
